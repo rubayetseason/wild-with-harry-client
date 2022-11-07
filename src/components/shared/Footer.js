@@ -47,7 +47,7 @@ const Footer = () => {
           </div>
         </form>
       </div>
-      <p className="mb-10">All rights reserved by Harry Harrington 2022</p>
+      <p className="mb-10">All rights reserved by Harry Harrington 2022 ©</p>
     </div>
   );
 };
