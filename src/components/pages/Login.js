@@ -1,6 +1,4 @@
 import React from "react";
-import { Button, TextInput } from "flowbite-react";
-import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 
 const Login = () => {
@@ -17,8 +15,8 @@ const Login = () => {
 
   return (
     <div className="w-full mx-auto max-w-md p-8 space-y-3 rounded-xl bg-gray-50 text-gray-800">
-<h1 class="mb-14 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-          <span class="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">
+<h1 className="mb-14 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+          <span className="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">
             Login
           </span>
         </h1>
