@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Label, TextInput } from "flowbite-react";
+import { Button, TextInput } from "flowbite-react";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 
