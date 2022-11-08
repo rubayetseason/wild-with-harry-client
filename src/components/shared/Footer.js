@@ -78,6 +78,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <div className="py-2 text-sm text-center text-gray-600">© 2022 Harry Harrington - Wild with Harry - All rights reserved.</div>
+
     </footer>
   );
 };

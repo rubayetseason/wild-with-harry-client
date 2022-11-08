@@ -7,8 +7,8 @@ import monkey from "../../Assets/Monkey.json";
 import Service from "./Service";
 import { Button } from "flowbite-react";
 import { Link } from "react-router-dom";
-import pic1 from '../../Assets/fet1.jpg';
-import pic2 from '../../Assets/fet2.jpg';
+import pic1 from "../../Assets/fet1.jpg";
+import pic2 from "../../Assets/fet2.jpg";
 
 const Home = () => {
   const [limService, setLimService] = useState([]);
@@ -52,7 +52,248 @@ const Home = () => {
           </p>
         </div>
       </div>
-      <div className="my-20 px-10">
+  
+      <div className="my-10">
+        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+          <span class="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">
+            Services
+          </span>
+        </h1>
+      </div>
+      <div className="px-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 ">
+          {limService.map((service) => (
+            <Service key={service._id} service={service}></Service>
+          ))}
+        </div>
+      </div>
+      <div>
+        <Link to="/services">
+          <Button className="mx-auto my-10" gradientMonochrome="info">
+            See More
+          </Button>
+        </Link>
+      </div>
+      <div className="px-10">
+        <section className="bg-gray-100 text-gray-800">
+          <div className="container max-w-xl p-6 py-12 mx-auto space-y-24 lg:px-8 lg:max-w-7xl">
+            <div>
+              <h1 class="my-8 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+                <span class="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">
+                  Features
+                </span>
+              </h1>
+            </div>
+            <div className="grid lg:gap-8 lg:grid-cols-2 lg:items-center">
+              <div>
+                <h3 className="text-2xl font-bold tracking-tight sm:text-3xl text-gray-900">
+                  Livliness of creation
+                </h3>
+                <p className="mt-3 text-lg text-gray-600">
+                  Every frames taken will bring out the interior and exterior beauty of the mother nature and its creation.
+                </p>
+                <div className="mt-12 space-y-12">
+                  <div className="flex">
+                    <div className="flex-shrink-0">
+                      <div className="flex items-center justify-center w-12 h-12 rounded-md bg-violet-600 text-gray-50">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          className="w-7 h-7"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M5 13l4 4L19 7"
+                          ></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <div className="ml-4">
+                      <h4 className="text-lg font-medium leading-6 text-gray-900">
+                        Aesthetic Shots
+                      </h4>
+                      <p className="mt-2 text-gray-600">
+                       Perfect level of saturation and luminence can be seen in each frames
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex">
+                    <div className="flex-shrink-0">
+                      <div className="flex items-center justify-center w-12 h-12 rounded-md bg-violet-600 text-gray-50">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          className="w-7 h-7"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M5 13l4 4L19 7"
+                          ></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <div className="ml-4">
+                      <h4 className="text-lg font-medium leading-6 text-gray-900">
+                        Magic with exposure and darkness 
+                      </h4>
+                      <p className="mt-2 text-gray-600">
+                       A perfect level of ISO and shutter speed will enhance every aspect of the taken pictures
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex">
+                    <div className="flex-shrink-0">
+                      <div className="flex items-center justify-center w-12 h-12 rounded-md bg-violet-600 text-gray-50">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          className="w-7 h-7"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M5 13l4 4L19 7"
+                          ></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <div className="ml-4">
+                      <h4 className="text-lg font-medium leading-6 text-gray-900">
+                       Graininess and Sharpness
+                      </h4>
+                      <p className="mt-2 text-gray-600">
+                       The photos aspect ratio indulged with the noise reduction and proper editing will make you relive the taken frame
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div aria-hidden="true" className="mt-10 lg:mt-0">
+                <img
+                  src={pic1}
+                  alt=""
+                  className="mx-auto w-3/4 rounded-lg shadow-lg bg-gray-500"
+                />
+              </div>
+            </div>
+            <div>
+              <div className="grid lg:gap-8 lg:grid-cols-2 lg:items-center">
+                <div className="lg:col-start-2">
+                  <h3 className="text-2xl font-bold tracking-tight sm:text-3xl text-gray-900">
+                  Your friendly photographer
+                  </h3>
+                  <div className="mt-12 space-y-12">
+                    <div className="flex">
+                      <div className="flex-shrink-0">
+                        <div className="flex items-center justify-center w-12 h-12 rounded-md bg-violet-600 text-gray-50">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            className="w-7 h-7"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              d="M5 13l4 4L19 7"
+                            ></path>
+                          </svg>
+                        </div>
+                      </div>
+                      <div className="ml-4">
+                        <h4 className="text-lg font-medium leading-6 text-gray-900">
+                          Supportive in all situation
+                        </h4>
+                        <p className="mt-2 text-gray-600">
+                          As a photographer cum friend, my service will make our client feel like working with a friend
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex">
+                      <div className="flex-shrink-0">
+                        <div className="flex items-center justify-center w-12 h-12 rounded-md bg-violet-600 text-gray-50">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            className="w-7 h-7"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              d="M5 13l4 4L19 7"
+                            ></path>
+                          </svg>
+                        </div>
+                      </div>
+                      <div className="ml-4">
+                        <h4 className="text-lg font-medium leading-6 text-gray-900">
+                         Happy to budget
+                        </h4>
+                        <p className="mt-2 text-gray-600">
+                          All services provided are all budget friendly keeping our customers in head and to top it off we can provide further discounts to previous customers.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex">
+                      <div className="flex-shrink-0">
+                        <div className="flex items-center justify-center w-12 h-12 rounded-md bg-violet-600 text-gray-50">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            className="w-7 h-7"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              d="M5 13l4 4L19 7"
+                            ></path>
+                          </svg>
+                        </div>
+                      </div>
+                      <div className="ml-4">
+                        <h4 className="text-lg font-medium leading-6 text-gray-900">
+                          Cooperative and informative
+                        </h4>
+                        <p className="mt-2 text-gray-600">
+                         As a photographer, our service is very cooperative keeping the customer's need in mind, we assure of great service with free of cost photo editing and printing.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-10 lg:mt-0 lg:col-start-1 lg:row-start-1">
+                  <img
+                    src={pic2}
+                    alt=""
+                    className="w-3/4 mx-auto rounded-lg shadow-lg bg-gray-500"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+	  <div>
+	  <div className="my-20 px-10">
         <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
           Explore the wilderness{" "}
           <span class="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">
@@ -72,141 +313,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="my-10">
-        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-          <span class="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">
-            Services
-          </span>
-        </h1>
-      </div>
-      <div className="px-5">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 ">
-          {limService.map((service) => (
-            <Service key={service._id} service={service}></Service>
-          ))}
-        </div>
-      </div>
-      <div>
-      <Link to='/services'>
-      <Button className="mx-auto my-10" gradientMonochrome="info">
-      See More
-    </Button></Link>
-      </div>
-      <div className="px-10">
-      <section className="bg-gray-100 text-gray-800">
-	<div className="container max-w-xl p-6 py-12 mx-auto space-y-24 lg:px-8 lg:max-w-7xl">
-		<div>
-    <h1 class="my-8 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-          <span class="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">
-            Features
-          </span>
-        </h1>
-		</div>
-		<div className="grid lg:gap-8 lg:grid-cols-2 lg:items-center">
-			<div>
-				<h3 className="text-2xl font-bold tracking-tight sm:text-3xl text-gray-900">Ad vix debet docendi</h3>
-				<p className="mt-3 text-lg text-gray-600">Ne dicta praesent ocurreret has, diam theophrastus at pro. Eos etiam regione ut, persius eripuit quo id. Sit te euismod tacimates.</p>
-				<div className="mt-12 space-y-12">
-					<div className="flex">
-						<div className="flex-shrink-0">
-							<div className="flex items-center justify-center w-12 h-12 rounded-md bg-violet-600 text-gray-50">
-								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-7 h-7">
-									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-								</svg>
-							</div>
-						</div>
-						<div className="ml-4">
-							<h4 className="text-lg font-medium leading-6 text-gray-900">Per ei quaeque sensibus</h4>
-							<p className="mt-2 text-gray-600">Ex usu illum iudico molestie. Pro ne agam facete mediocritatem, ridens labore facete mea ei. Pro id apeirian dignissim.</p>
-						</div>
-					</div>
-					<div className="flex">
-						<div className="flex-shrink-0">
-							<div className="flex items-center justify-center w-12 h-12 rounded-md bg-violet-600 text-gray-50">
-								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-7 h-7">
-									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-								</svg>
-							</div>
-						</div>
-						<div className="ml-4">
-							<h4 className="text-lg font-medium leading-6 text-gray-900">Cu imperdiet posidonium sed</h4>
-							<p className="mt-2 text-gray-600">Amet utinam aliquando ut mea, malis admodum ocurreret nec et, elit tibique cu nec. Nec ex maluisset inciderint, ex quis.</p>
-						</div>
-					</div>
-					<div className="flex">
-						<div className="flex-shrink-0">
-							<div className="flex items-center justify-center w-12 h-12 rounded-md bg-violet-600 text-gray-50">
-								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-7 h-7">
-									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-								</svg>
-							</div>
-						</div>
-						<div className="ml-4">
-							<h4 className="text-lg font-medium leading-6 text-gray-900">Nulla omittam sadipscing mel ne</h4>
-							<p className="mt-2 text-gray-600">At sed possim oporteat probatus, justo graece ne nec, minim commodo legimus ut vix. Ut eos iudico quando soleat, nam modus.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div aria-hidden="true" className="mt-10 lg:mt-0">
-				<img src={pic1} alt="" className="mx-auto w-3/4 rounded-lg shadow-lg bg-gray-500" />
-			</div>
-		</div>
-		<div>
-			<div className="grid lg:gap-8 lg:grid-cols-2 lg:items-center">
-				<div className="lg:col-start-2">
-					<h3 className="text-2xl font-bold tracking-tight sm:text-3xl text-gray-900">Eam nibh gloriatur ex</h3>
-					<p className="mt-3 text-lg text-gray-600">Per odio fabellas consulatu cu. Utroque detracto mel ea, quo te latine theophrastus. Ea his tale nibh dissentias, mei exerci tamquam euripidis cu.</p>
-					<div className="mt-12 space-y-12">
-						<div className="flex">
-							<div className="flex-shrink-0">
-								<div className="flex items-center justify-center w-12 h-12 rounded-md bg-violet-600 text-gray-50">
-									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-7 h-7">
-										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-									</svg>
-								</div>
-							</div>
-							<div className="ml-4">
-								<h4 className="text-lg font-medium leading-6 text-gray-900">Cibo augue offendit has ad</h4>
-								<p className="mt-2 text-gray-600">An per velit appellantur, ut utinam minimum nominavi sit, odio nostro habemus ne nec. Ne sonet regione contentiones est.</p>
-							</div>
-						</div>
-						<div className="flex">
-							<div className="flex-shrink-0">
-								<div className="flex items-center justify-center w-12 h-12 rounded-md bg-violet-600 text-gray-50">
-									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-7 h-7">
-										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-									</svg>
-								</div>
-							</div>
-							<div className="ml-4">
-								<h4 className="text-lg font-medium leading-6 text-gray-900">At eum ferri luptatum lobortis</h4>
-								<p className="mt-2 text-gray-600">Te per quidam maiorum ocurreret, etiam delicatissimi usu ad. Ne has quod periculis. Te sit primis iisque efficiantur.</p>
-							</div>
-						</div>
-						<div className="flex">
-							<div className="flex-shrink-0">
-								<div className="flex items-center justify-center w-12 h-12 rounded-md bg-violet-600 text-gray-50">
-									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-7 h-7">
-										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-									</svg>
-								</div>
-							</div>
-							<div className="ml-4">
-								<h4 className="text-lg font-medium leading-6 text-gray-900">Dicunt verterem evertitur eu sea</h4>
-								<p className="mt-2 text-gray-600">Audire principes rationibus eam an, autem nominavi luptatum per te. Sumo fabulas vim eu, sonet saperet eleifend ut vix.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div className="mt-10 lg:mt-0 lg:col-start-1 lg:row-start-1">
-					<img src={pic2} alt="" className="w-3/4 mx-auto rounded-lg shadow-lg bg-gray-500" />
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-      </div>
+	  </div>
     </div>
   );
 };
