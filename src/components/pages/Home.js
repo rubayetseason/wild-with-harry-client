@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import harry from "../../Assets/harry.png";
 import Lottie from "lottie-react";
 import elephant from "../../Assets/Elephant.json";
 import africa from "../../Assets/Africa.json";
 import monkey from "../../Assets/Monkey.json";
+import Service from "./Service";
+import { Button } from "flowbite-react";
+import { Link } from "react-router-dom";
 
 const Home = () => {
+  const [limService, setLimService] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/limited")
+      .then((res) => res.json())
+      .then((data) => setLimService(data))
+      .catch((error) => console.log(error));
+  }, []);
+
   return (
     <div>
       <div className="my-16 px-12 flex flex-col md:flex-col lg:flex-row justify-evenly">
@@ -38,13 +50,12 @@ const Home = () => {
           </p>
         </div>
       </div>
-      <div className="my-28">
+      <div className="my-20 px-10">
         <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-          Explore the{" "}
-          <mark class="px-2 text-white bg-blue-600 rounded dark:bg-blue-500">
-            wilderness
-          </mark>{" "}
-          with Harry
+          Explore the wilderness{" "}
+          <span class="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">
+            with Harry
+          </span>
         </h1>
       </div>
       <div className="flex flex-col md:flex-row lg:flex-row px-16">
@@ -65,6 +76,19 @@ const Home = () => {
             Services
           </span>
         </h1>
+      </div>
+      <div className="px-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 ">
+          {limService.map((service) => (
+            <Service key={service._id} service={service}></Service>
+          ))}
+        </div>
+      </div>
+      <div>
+      <Link to='/services'>
+      <Button className="mx-auto my-10" gradientMonochrome="info">
+      See More
+    </Button></Link>
       </div>
     </div>
   );
