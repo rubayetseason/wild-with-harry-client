@@ -6,7 +6,7 @@ import useTitle from "../../hooks/useTitle";
 
 const Register = () => {
   useTitle("Register");
-  const { createUser } = useContext(AuthContext);
+  const { createUser, googleSignIn } = useContext(AuthContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -15,13 +15,23 @@ const Register = () => {
     const password = form.password.value;
 
     createUser(email, password)
-    .then((result) => {
-      const user = result.user;
-      console.log(user);
-      toast.success('Login successful');
-      form.reset();
-    })
-    .catch(error => console.log(error))
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        toast.success("Login successful");
+        form.reset();
+      })
+      .catch((error) => console.log(error));
+  };
+
+  const handleGoogleLogin = () => {
+    googleSignIn()
+      .then((result) => {
+        const user = result.user;
+        toast.success("Login successful");
+        console.log(user);
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -96,6 +106,7 @@ const Register = () => {
         </p>
         <div className="">
           <button
+            onClick={handleGoogleLogin}
             type="button"
             className="my-3 px-8 py-2 font-semibold border rounded border-gray-800 text-gray-800"
           >

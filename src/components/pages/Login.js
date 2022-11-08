@@ -7,7 +7,7 @@ import useTitle from "../../hooks/useTitle";
 const Login = () => {
   useTitle("Login");
 
-  const { signIn } = useContext(AuthContext);
+  const { signIn, googleSignIn } = useContext(AuthContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -19,8 +19,18 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        toast.success('Login successful')
+        toast.success("Login successful");
         form.reset();
+      })
+      .catch((error) => console.log(error));
+  };
+
+  const handleGoogleLogin = () => {
+    googleSignIn()
+      .then((result) => {
+        const user = result.user;
+        toast.success("Login successful");
+        console.log(user);
       })
       .catch((error) => console.log(error));
   };
@@ -76,6 +86,7 @@ const Login = () => {
         <div className="">
           <button
             type="button"
+            onClick={handleGoogleLogin}
             className="my-3 px-8 py-2 font-semibold border rounded border-gray-800 text-gray-800"
           >
             Login with Google
