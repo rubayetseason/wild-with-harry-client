@@ -4,64 +4,53 @@ import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 
 const Register = () => {
+
+  const handleSubmit = (event) => {
+event.preventDefault();
+const form = event.target;
+const name = form.name.value;
+const photoURL = form.photoURL.value;
+const email = form.email.value;
+const password = form.password.value;
+
+console.log(name, email, password, photoURL);
+  }
+
   return (
-    <form className="flex flex-col gap-4 w-11/12 mx-auto mb-20">
-<h1 className="my-8 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-          <span className="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">
+    <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-gray-50 text-gray-800 mx-auto">
+    <h1 class="mb-14 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+          <span class="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">
             Register
           </span>
         </h1>
-
-      <div>
-        <div className="mb-2 block">
-        <h1 className="text-left font-semibold">Your Name</h1>
-        </div>
-        <TextInput
-          type="text"
-          placeholder="Your Name Here"
-          required
-        />
+    <form onSubmit={handleSubmit} className="space-y-6 ng-untouched ng-pristine ng-valid">
+      <div className="space-y-1 text-sm">
+        <label for="username" className="block text-gray-600">Your Name</label>
+        <input type="text" name="name" placeholder="Your name here" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
       </div>
-      <div>
-        <div className="mb-2 block">
-        <h1 className="text-left font-semibold">Your Photo URL</h1>
-        </div>
-        <TextInput
-          type="text"
-          placeholder="Photo URL Here"
-          required
-        />
+      <div className="space-y-1 text-sm">
+        <label for="username" className="block text-gray-600">Photo URL</label>
+        <input type="text" name="photoURL" placeholder="Your Photo URL here" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
       </div>
-      <div>
-        <div className="mb-2 block">
-        <h1 className="text-left font-semibold">Your Email Address</h1>
-        </div>
-        <TextInput
-          id="email1"
-          type="email"
-          placeholder="Your Email Here"
-          required
-        />
+      <div className="space-y-1 text-sm">
+        <label for="username" className="block text-gray-600">Email Address</label>
+        <input type="text" name="email" placeholder="Your email" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
       </div>
-      <div>
-        <div className="mb-2 block">
-        <h1 className="text-left font-semibold">Your Password</h1>
-        </div>
-        <TextInput id="password1" type="password" placeholder="Your Password" required />
+      <div className="space-y-1 text-sm">
+        <label for="password" className="block text-gray-600">Password</label>
+        <input type="password" name="password" placeholder="Password" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
       </div>
-      <div>
-          <p className="text-start"><small>Already have an account? <Link to='/login' className="text-blue-700">Sign in</Link></small></p>
-        </div>
-      <Button className="w-1/3 py-1 my-3 mx-auto" gradientDuoTone="pinkToOrange">
-      Register
-    </Button>
-    <Button
-      outline={true}
-      gradientDuoTone="pinkToOrange" className="mx-auto"
-    >
-      <FcGoogle className="mr-2"/> Sign in with Google
-    </Button>
+      <button className="block w-full p-3 text-center rounded-sm text-gray-50 bg-violet-600">Sign in</button>
     </form>
+    <div className="">
+      <div className=""></div>
+      <p className="px-3 my-5 text-sm text-gray-600">Already have an account? <Link to='/login' className="text-blue-600">Login now</Link></p>
+      <p className="px-3 my-5 text-sm text-gray-600">Login with social accounts</p>
+      <div className="">
+      <button type="button" className="my-3 px-8 py-2 font-semibold border rounded border-gray-800 text-gray-800">Login with Google</button>
+      </div>
+    </div>
+  </div>
   );
 };
 
