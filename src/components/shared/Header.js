@@ -1,9 +1,21 @@
 import { Navbar } from 'flowbite-react';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../Assets/banner.png';
+import { AuthContext } from '../../context/AuthProvider';
 
 const Header = () => {
+
+  const {user, logOut} = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+    .then(result => {
+      console.log(result);
+    })
+    .catch(error => console.log(error))
+  };
+
     return (
         <Navbar
   fluid={true}
@@ -32,22 +44,26 @@ const Header = () => {
       Services
     </Navbar.Link>
   </Link>
+{
+  user?.email ? <>
   <Link to='/reviews'>
   <Navbar.Link>
-      Reviews
+     My Reviews
     </Navbar.Link>
   </Link>
   <Link to='/add'>
   <Navbar.Link>
       Add
     </Navbar.Link>
-  </Link>
+  </Link></> : <></>
+}
   <Link to='/blog'>
   <Navbar.Link>
       Blog
     </Navbar.Link>
   </Link>
-  <Link to='/login'>
+{
+  user?.email ? <><button onClick={handleLogOut} className='bg-red-600 py-1 px-2 text-white rounded-md'>Logout</button></> : <> <Link to='/login'>
   <Navbar.Link>
       Login
     </Navbar.Link>
@@ -56,7 +72,9 @@ const Header = () => {
   <Navbar.Link>
       Register
     </Navbar.Link>
-  </Link>
+  </Link></>
+}
+
   </Navbar.Collapse>
 </Navbar>
     );
