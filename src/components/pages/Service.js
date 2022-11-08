@@ -22,7 +22,7 @@ const Service = ({ service }) => {
         </p>
         <p className="font-semibold">Price : $ {price}</p>
         <div>
-          <Link to='/detail'>
+          <Link to={`/detail/${_id}`}>
             <Button className="mx-auto" gradientDuoTone="purpleToPink">
               View Details
             </Button>
