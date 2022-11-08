@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import useTitle from "../../hooks/useTitle";
 
 const Login = () => {
-
+  useTitle('Login');
   
   const handleSubmit = (event) => {
     event.preventDefault();

@@ -9,8 +9,10 @@ import { Button } from "flowbite-react";
 import { Link } from "react-router-dom";
 import pic1 from "../../Assets/fet1.jpg";
 import pic2 from "../../Assets/fet2.jpg";
+import useTitle from "../../hooks/useTitle";
 
 const Home = () => {
+  useTitle('Home');
   const [limService, setLimService] = useState([]);
 
   useEffect(() => {
