@@ -6,13 +6,16 @@ import useTitle from "../../hooks/useTitle";
 
 const Register = () => {
   useTitle("Register");
-  const { createUser, googleSignIn } = useContext(AuthContext);
+  const { createUser, googleSignIn, updateUserProfile } =
+    useContext(AuthContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
+    const name = form.name.value;
+    const photoURL = form.photoURL.value;
 
     createUser(email, password)
       .then((result) => {
@@ -20,7 +23,18 @@ const Register = () => {
         console.log(user);
         toast.success("Login successful");
         form.reset();
+        handleUpdateUser(name, photoURL);
       })
+      .catch((error) => console.log(error));
+  };
+
+  const handleUpdateUser = (name, photoURL) => {
+    const profile = {
+      displayName: name,
+      photoURL: photoURL,
+    };
+    updateUserProfile(profile) //main function
+      .then((result) => console.log(result))
       .catch((error) => console.log(error));
   };
 
