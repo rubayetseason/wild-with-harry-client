@@ -1,5 +1,6 @@
 import { Card } from "flowbite-react";
 import React, { useContext } from "react";
+import toast from "react-hot-toast";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 
@@ -11,12 +12,37 @@ const Detail = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
-    const name = form.name.value;
+    const customer = form.name.value;
     const photoURL = form.photoURL.value;
     const email = form.email.value;
-    const message = form.message.value;
+    const message = form.message.value || "excellent";
 
-    console.log(name, photoURL, email, message);
+    const review = {
+      service: _id,
+      serviceName: name,
+      customer,
+      email,
+      photoURL,
+      message,
+    };
+    console.log(review);
+
+    fetch("http://localhost:5000/reviews", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(review),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged) {
+          toast.success("Review Added Successfully");
+          form.reset();
+        }
+      })
+      .catch((error) => console.log(error));
   };
   return (
     <div>
@@ -78,7 +104,7 @@ const Detail = () => {
                       defaultValue={user?.photoURL}
                       type="text"
                       placeholder="Your name"
-                      required=""
+                      required
                       className="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-violet-600 bg-gray-100"
                     />
                   </div>
@@ -92,7 +118,7 @@ const Detail = () => {
                       type="email"
                       defaultValue={user?.email}
                       placeholder="Your email"
-                      required=""
+                      required
                       className="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-violet-600 bg-gray-100"
                     />
                   </div>
@@ -102,6 +128,7 @@ const Detail = () => {
                     </label>
                     <textarea
                       name="message"
+                      required
                       type="text"
                       placeholder="Message..."
                       className="block w-full p-2 rounded autoexpand focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-violet-600 bg-gray-100"
