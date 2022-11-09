@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyD0cuFv_QYf8HUVUt5_33x2zAG3wKqyXFw",
-  authDomain: "wild-with-harry.firebaseapp.com",
-  projectId: "wild-with-harry",
-  storageBucket: "wild-with-harry.appspot.com",
-  messagingSenderId: "1050249765755",
-  appId: "1:1050249765755:web:b03276552d2a702f9ed3de",
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId,
 };
 
 // Initialize Firebase

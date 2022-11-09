@@ -148,7 +148,7 @@ const Detail = () => {
           </>
         ) : (
           <>
-            <Link>
+            <Link to='login'>
               <h1 className="text-3xl text-white p-1 w-2/4 mx-auto bg-red-600 font-bold my-16">
                 <span className="underline">Login</span> to add reviews !!
               </h1>
