@@ -9,6 +9,7 @@ import Reviews from "../components/pages/Reviews";
 import Services from "../components/pages/Services";
 import NotFound from "../components/shared/NotFound";
 import Main from "../layouts/Main";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -37,11 +38,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/reviews",
-        element: <Reviews></Reviews>,
+        element: <PrivateRoute><Reviews></Reviews></PrivateRoute>,
       },
       {
         path: "/add",
-        element: <Add></Add>,
+        element: <PrivateRoute><Add></Add></PrivateRoute>,
       },
       {
         path: "/detail/:id",
