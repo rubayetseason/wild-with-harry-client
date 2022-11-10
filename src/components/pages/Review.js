@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 
 const Review = ({ review, handleDelete}) => {
@@ -34,7 +35,8 @@ const Review = ({ review, handleDelete}) => {
         </div>
         <div className="p-4 space-y-2 text-sm text-gray-600">{message}</div>
         <div>
-          <button className="bg-blue-600 mr-1 text-white px-2 py-1 rounded-lg">Edit</button>
+          <Link to={`/update/${_id}`}><button className="bg-blue-600 mr-1 text-white px-2 py-1 rounded-lg">Edit</button>
+</Link>
           <button onClick={() => handleDelete(_id)} className="bg-red-600 text-white px-2 py-1 rounded-lg">Delete</button>
         </div>
       </div>
