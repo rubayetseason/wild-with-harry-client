@@ -8,7 +8,7 @@ const Login = () => {
   useTitle("Login");
   const location = useLocation();
   const navigate = useNavigate();
-  const from = location.state?.from?.pathname || '/';
+  const from = location.state?.from?.pathname || "/";
 
   const { signIn, googleSignIn } = useContext(AuthContext);
 
@@ -21,11 +21,28 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         const user = result.user;
+        const currentUser = {
+          email: user.email,
+        };
         console.log(user);
         toast.success("Login successful");
-        form.reset();
-        navigate(from , {replace: true});
 
+        //get jwt
+        fetch("http://localhost:5000/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            localStorage.setItem('harryToken', data.token);
+            navigate(from , {replace: true});
+          });
+
+        form.reset();
       })
       .catch((error) => console.log(error));
   };
@@ -36,6 +53,23 @@ const Login = () => {
         const user = result.user;
         toast.success("Login successful");
         console.log(user);
+        const currentUser = {
+          email : user.email
+        };
+        fetch("http://localhost:5000/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            localStorage.setItem('harryToken', data.token);
+            navigate(from , {replace: true});
+          });
+
       })
       .catch((error) => console.log(error));
   };

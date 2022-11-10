@@ -31,18 +31,18 @@ const Home = () => {
           alt=""
         />
         <div>
-          <h1 class="text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-            <span class="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">
-              <h1 class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
+          <h1 className="text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+            <span className="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">
+              <h1 className="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
                 Welcome to{" "}
-                <span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">
                   Wild with Harry
                 </span>
               </h1>
             </span>
           </h1>
 
-          <p class="text-lg my-5 font-normal text-gray-500 lg:text-xl dark:text-gray-400">
+          <p className="text-lg my-5 font-normal text-gray-500 lg:text-xl dark:text-gray-400">
             Explore the beauty of our mother earth with me, Harry Harrington, a
             self-taught wildlife photographer. <br />
             Explore various services provided by me while diving deep into the
@@ -56,8 +56,8 @@ const Home = () => {
       </div>
   
       <div className="my-10">
-        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-          <span class="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">
+        <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+          <span className="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">
             Services
           </span>
         </h1>
@@ -80,8 +80,8 @@ const Home = () => {
         <section className="bg-gray-100 text-gray-800">
           <div className="container max-w-xl p-6 py-12 mx-auto space-y-24 lg:px-8 lg:max-w-7xl">
             <div>
-              <h1 class="my-8 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-                <span class="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">
+              <h1 className="my-8 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+                <span className="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">
                   Features
                 </span>
               </h1>
@@ -296,9 +296,9 @@ const Home = () => {
       </div>
 	  <div>
 	  <div className="my-20 px-10">
-        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+        <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
           Explore the wilderness{" "}
-          <span class="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">
+          <span className="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">
             with Harry
           </span>
         </h1>

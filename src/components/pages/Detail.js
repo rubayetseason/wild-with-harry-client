@@ -3,21 +3,21 @@ import React, { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
+import useTitle from "../../hooks/useTitle";
 import Rating from "./Rating";
 
 const Detail = () => {
+  useTitle("Details");
   const { user } = useContext(AuthContext);
   const service = useLoaderData();
   const [ratings, setRatings] = useState([]);
   const { name, img, details, price, _id } = service;
 
-  console.log(ratings);
-
   useEffect(() => {
     fetch(`http://localhost:5000/reviews?id=${service._id}`)
-    .then(res => res.json())
-    .then(data => setRatings(data))
-    .catch(error => console.log(error))
+      .then((res) => res.json())
+      .then((data) => setRatings(data))
+      .catch((error) => console.log(error));
   }, [service?._id]);
 
   const handleSubmit = (event) => {
@@ -81,11 +81,11 @@ const Detail = () => {
           </h1>
         </div>
       </div>
-        <div className="grid my-10 px-14 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-{
-  ratings.map(rating => <Rating key={rating._id} rating={rating}></Rating>)
-}
-        </div>
+      <div className="grid my-10 px-14 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {ratings.map((rating) => (
+          <Rating key={rating._id} rating={rating}></Rating>
+        ))}
+      </div>
 
       <div>
         {user?.email ? (

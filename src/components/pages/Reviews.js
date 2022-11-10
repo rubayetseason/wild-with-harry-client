@@ -3,16 +3,27 @@ import toast from "react-hot-toast";
 import { AuthContext } from "../../context/AuthProvider";
 import Review from "./Review";
 import Swal from "sweetalert2";
+import useTitle from "../../hooks/useTitle";
 
 const Reviews = () => {
-  const { user } = useContext(AuthContext);
+  useTitle('Reviews');
+  const { user, logOut } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?email=${user?.email}`)
-      .then((res) => res.json())
+    fetch(`http://localhost:5000/myreviews?email=${user?.email}`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('harryToken')}`
+      }
+    })
+      .then((res) => {
+if(res.status === 401 || res.status === 403){
+  return logOut()
+}
+       return res.json()
+      })
       .then((data) => setReviews(data))
       .catch((error) => console.log(error));
-  }, [user?.email]);
+  }, [user?.email, logOut]);
 
   const handleDelete = (id) => {
     console.log(id);
@@ -49,8 +60,11 @@ const Reviews = () => {
           Your Reviews
         </span>
       </h1>
+      <h1 className="text-4xl text-center">{
+        reviews.length === 0 ? 'Add reviews to see' : ''
+      }</h1>
       <div className="review-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-14 my-14 gap-4">
-        {reviews.map((review) => (
+        {reviews.reverse().map((review) => (
           <Review
             key={review._id}
             review={review}
