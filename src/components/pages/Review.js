@@ -1,7 +1,9 @@
 import React from "react";
 
-const Review = ({ review }) => {
-  const { customer, email, photoURL, message, _id, handleDelete } = review;
+
+const Review = ({ review, handleDelete}) => {
+  const {customer, email, photoURL, message, _id} = review;
+
   return (
     <div>
       <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-300 bg-gray-50 text-gray-800">
