@@ -41,7 +41,9 @@ export const router = createBrowserRouter([
         path: "/update/:id",
         element: <Update></Update>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/reviews/${params.id}`),
+          fetch(
+            `https://wild-with-harry-server.vercel.app/reviews/${params.id}`
+          ),
       },
       {
         path: "/reviews",
@@ -63,7 +65,9 @@ export const router = createBrowserRouter([
         path: "/detail/:id",
         element: <Detail></Detail>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/services/${params.id}`),
+          fetch(
+            `https://wild-with-harry-server.vercel.app/services/${params.id}`
+          ),
       },
     ],
   },

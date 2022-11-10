@@ -21,9 +21,9 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         const currentUser = {
-          email : user.email
+          email: user.email,
         };
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://wild-with-harry-server.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -33,7 +33,7 @@ const Register = () => {
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
-            localStorage.setItem('harryToken', data.token);
+            localStorage.setItem("harryToken", data.token);
           });
         console.log(user);
         toast.success("Login successful");
@@ -58,9 +58,9 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         const currentUser = {
-          email : user.email
+          email: user.email,
         };
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://wild-with-harry-server.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -70,7 +70,7 @@ const Register = () => {
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
-            localStorage.setItem('harryToken', data.token);
+            localStorage.setItem("harryToken", data.token);
           });
         toast.success("Login successful");
         console.log(user);

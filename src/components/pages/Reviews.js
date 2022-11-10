@@ -6,20 +6,23 @@ import Swal from "sweetalert2";
 import useTitle from "../../hooks/useTitle";
 
 const Reviews = () => {
-  useTitle('Reviews');
+  useTitle("Reviews");
   const { user, logOut } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/myreviews?email=${user?.email}`, {
-      headers: {
-        authorization: `Bearer ${localStorage.getItem('harryToken')}`
+    fetch(
+      `https://wild-with-harry-server.vercel.app/myreviews?email=${user?.email}`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("harryToken")}`,
+        },
       }
-    })
+    )
       .then((res) => {
-if(res.status === 401 || res.status === 403){
-  return logOut()
-}
-       return res.json()
+        if (res.status === 401 || res.status === 403) {
+          return logOut();
+        }
+        return res.json();
       })
       .then((data) => setReviews(data))
       .catch((error) => console.log(error));
@@ -38,16 +41,16 @@ if(res.status === 401 || res.status === 403){
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
-        fetch(`http://localhost:5000/reviews/${id}`, {
-          method: 'DELETE'
+        fetch(`https://wild-with-harry-server.vercel.app/reviews/${id}`, {
+          method: "DELETE",
         })
-        .then(res => res.json())
-        .then(data => {
-          if(data.deletedCount > 0){
-            const remaining = reviews.filter(rev => rev._id !== id);
-            setReviews(remaining);
-          }
-        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              const remaining = reviews.filter((rev) => rev._id !== id);
+              setReviews(remaining);
+            }
+          });
       }
     });
   };
@@ -60,9 +63,9 @@ if(res.status === 401 || res.status === 403){
           Your Reviews
         </span>
       </h1>
-      <h1 className="text-4xl text-center">{
-        reviews.length === 0 ? 'Add reviews to see' : ''
-      }</h1>
+      <h1 className="text-4xl text-center">
+        {reviews.length === 0 ? "Add reviews to see" : ""}
+      </h1>
       <div className="review-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-14 my-14 gap-4">
         {reviews.reverse().map((review) => (
           <Review

@@ -12,11 +12,11 @@ import pic2 from "../../Assets/fet2.jpg";
 import useTitle from "../../hooks/useTitle";
 
 const Home = () => {
-  useTitle('Home');
+  useTitle("Home");
   const [limService, setLimService] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/limited")
+    fetch("https://wild-with-harry-server.vercel.app/limited")
       .then((res) => res.json())
       .then((data) => setLimService(data))
       .catch((error) => console.log(error));
@@ -54,7 +54,7 @@ const Home = () => {
           </p>
         </div>
       </div>
-  
+
       <div className="my-10">
         <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
           <span className="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">
@@ -92,7 +92,8 @@ const Home = () => {
                   Livliness of creation
                 </h3>
                 <p className="mt-3 text-lg text-gray-600">
-                  Every frames taken will bring out the interior and exterior beauty of the mother nature and its creation.
+                  Every frames taken will bring out the interior and exterior
+                  beauty of the mother nature and its creation.
                 </p>
                 <div className="mt-12 space-y-12">
                   <div className="flex">
@@ -119,7 +120,8 @@ const Home = () => {
                         Aesthetic Shots
                       </h4>
                       <p className="mt-2 text-gray-600">
-                       Perfect level of saturation and luminence can be seen in each frames
+                        Perfect level of saturation and luminence can be seen in
+                        each frames
                       </p>
                     </div>
                   </div>
@@ -144,10 +146,11 @@ const Home = () => {
                     </div>
                     <div className="ml-4">
                       <h4 className="text-lg font-medium leading-6 text-gray-900">
-                        Magic with exposure and darkness 
+                        Magic with exposure and darkness
                       </h4>
                       <p className="mt-2 text-gray-600">
-                       A perfect level of ISO and shutter speed will enhance every aspect of the taken pictures
+                        A perfect level of ISO and shutter speed will enhance
+                        every aspect of the taken pictures
                       </p>
                     </div>
                   </div>
@@ -172,10 +175,12 @@ const Home = () => {
                     </div>
                     <div className="ml-4">
                       <h4 className="text-lg font-medium leading-6 text-gray-900">
-                       Graininess and Sharpness
+                        Graininess and Sharpness
                       </h4>
                       <p className="mt-2 text-gray-600">
-                       The photos aspect ratio indulged with the noise reduction and proper editing will make you relive the taken frame
+                        The photos aspect ratio indulged with the noise
+                        reduction and proper editing will make you relive the
+                        taken frame
                       </p>
                     </div>
                   </div>
@@ -193,7 +198,7 @@ const Home = () => {
               <div className="grid lg:gap-8 lg:grid-cols-2 lg:items-center">
                 <div className="lg:col-start-2">
                   <h3 className="text-2xl font-bold tracking-tight sm:text-3xl text-gray-900">
-                  Your friendly photographer
+                    Your friendly photographer
                   </h3>
                   <div className="mt-12 space-y-12">
                     <div className="flex">
@@ -220,7 +225,8 @@ const Home = () => {
                           Supportive in all situation
                         </h4>
                         <p className="mt-2 text-gray-600">
-                          As a photographer cum friend, my service will make our client feel like working with a friend
+                          As a photographer cum friend, my service will make our
+                          client feel like working with a friend
                         </p>
                       </div>
                     </div>
@@ -245,10 +251,12 @@ const Home = () => {
                       </div>
                       <div className="ml-4">
                         <h4 className="text-lg font-medium leading-6 text-gray-900">
-                         Happy to budget
+                          Happy to budget
                         </h4>
                         <p className="mt-2 text-gray-600">
-                          All services provided are all budget friendly keeping our customers in head and to top it off we can provide further discounts to previous customers.
+                          All services provided are all budget friendly keeping
+                          our customers in head and to top it off we can provide
+                          further discounts to previous customers.
                         </p>
                       </div>
                     </div>
@@ -276,7 +284,10 @@ const Home = () => {
                           Cooperative and informative
                         </h4>
                         <p className="mt-2 text-gray-600">
-                         As a photographer, our service is very cooperative keeping the customer's need in mind, we assure of great service with free of cost photo editing and printing.
+                          As a photographer, our service is very cooperative
+                          keeping the customer's need in mind, we assure of
+                          great service with free of cost photo editing and
+                          printing.
                         </p>
                       </div>
                     </div>
@@ -294,28 +305,27 @@ const Home = () => {
           </div>
         </section>
       </div>
-	  <div>
-	  <div className="my-20 px-10">
-        <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-          Explore the wilderness{" "}
-          <span className="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">
-            with Harry
-          </span>
-        </h1>
+      <div>
+        <div className="my-20 px-10">
+          <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+            Explore the wilderness{" "}
+            <span className="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">
+              with Harry
+            </span>
+          </h1>
+        </div>
+        <div className="flex flex-col md:flex-row lg:flex-row px-16">
+          <div className="px-5 mb-4 w-full md:w-3/4 lg:w-3/4 mx-auto">
+            <Lottie animationData={elephant} loop={true} />
+          </div>
+          <div className="px-5 mb-4 w-full md:w-3/4 lg:w-3/4 mx-auto">
+            <Lottie animationData={africa} loop={true} />
+          </div>
+          <div className="px-5 mb-4 w-full md:w-3/4 lg:w-3/4 mx-auto">
+            <Lottie animationData={monkey} loop={true} />
+          </div>
+        </div>
       </div>
-      <div className="flex flex-col md:flex-row lg:flex-row px-16">
-        <div className="px-5 mb-4 w-full md:w-3/4 lg:w-3/4 mx-auto">
-          <Lottie animationData={elephant} loop={true} />
-        </div>
-        <div className="px-5 mb-4 w-full md:w-3/4 lg:w-3/4 mx-auto">
-          <Lottie animationData={africa} loop={true} />
-        </div>
-        <div className="px-5 mb-4 w-full md:w-3/4 lg:w-3/4 mx-auto">
-          <Lottie animationData={monkey} loop={true} />
-        </div>
-      </div>
-
-	  </div>
     </div>
   );
 };

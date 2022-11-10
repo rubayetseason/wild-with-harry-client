@@ -14,7 +14,7 @@ const Detail = () => {
   const { name, img, details, price, _id } = service;
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?id=${service._id}`)
+    fetch(`https://wild-with-harry-server.vercel.app/reviews?id=${service._id}`)
       .then((res) => res.json())
       .then((data) => setRatings(data))
       .catch((error) => console.log(error));
@@ -38,7 +38,7 @@ const Detail = () => {
     };
     console.log(review);
 
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://wild-with-harry-server.vercel.app/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -28,7 +28,7 @@ const Login = () => {
         toast.success("Login successful");
 
         //get jwt
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://wild-with-harry-server.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -38,8 +38,8 @@ const Login = () => {
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
-            localStorage.setItem('harryToken', data.token);
-            navigate(from , {replace: true});
+            localStorage.setItem("harryToken", data.token);
+            navigate(from, { replace: true });
           });
 
         form.reset();
@@ -54,9 +54,9 @@ const Login = () => {
         toast.success("Login successful");
         console.log(user);
         const currentUser = {
-          email : user.email
+          email: user.email,
         };
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://wild-with-harry-server.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -66,10 +66,9 @@ const Login = () => {
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
-            localStorage.setItem('harryToken', data.token);
-            navigate(from , {replace: true});
+            localStorage.setItem("harryToken", data.token);
+            navigate(from, { replace: true });
           });
-
       })
       .catch((error) => console.log(error));
   };
