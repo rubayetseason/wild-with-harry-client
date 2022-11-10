@@ -1,15 +1,9 @@
 import React from "react";
+
 import { useLoaderData } from "react-router-dom";
 
 const Update = () => {
   const review = useLoaderData();
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const form = event.target;
-    const message = form.detail.value;
-    console.log(message);
-  };
 
   return (
     <div>
@@ -19,7 +13,7 @@ const Update = () => {
         </span>
       </h1>
       <h1 className="my-4">Update Review Comment</h1>
-      <form onSubmit={handleSubmit}>
+      <form>
         <input type="text" defaultValue={review.message} name="detail" />
         <div>
           <button className="my-5 px-2 bg-blue-600 text-white">Update</button>
